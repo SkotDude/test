@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3nvj27a8blyc"]
+
+[ext_resource type="Script" path="res://mapgen.gd" id="1_yylh3"]
+[ext_resource type="Texture2D" uid="uid://br43mme5ocu6c" path="res://icon.svg" id="2_eg7dk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_awe6u"]
+texture = ExtResource("2_eg7dk")
+1:1/0 = 0
+1:1/0/modulate = Color(0, 10.06, 0, 1)
+6:1/0 = 0
+6:1/0/modulate = Color(100, 0, 0, 1)
+
+[sub_resource type="TileSet" id="TileSet_7mr2e"]
+sources/0 = SubResource("TileSetAtlasSource_awe6u")
+
+[node name="mapgen" type="Node2D"]
+script = ExtResource("1_yylh3")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_7mr2e")
+format = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.1, 0.1)
